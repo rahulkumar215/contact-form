@@ -30,48 +30,61 @@
               >First Name <span class="importantt"> *</span></label
             >
             <input type="text" id="first-name" />
+            <p class="error hide-error">This field is required</p>
           </div>
           <div class="input__name w_50">
             <label for="last-name"
               >Last Name <span class="importantt"> *</span></label
             >
             <input type="text" id="last-name" />
+            <p class="error hide-error">This field is required</p>
           </div>
         </div>
-        <div class="input__email w_100">
+        <div class="input__email">
           <label for="contact-email"
             >Email Address <span class="importantt"> *</span></label
           >
           <input type="email" id="contact-email" />
+          <p class="error hide-error">Please enter a valid email address</p>
         </div>
 
         <label>Query Type <span class="importantt"> *</span></label>
         <div class="input__query-type w_50">
           <div class="input__radio">
-            <label for="general-enquiry"
+            <label class="radio" for="general-enquiry"
               >General Enquiry
               <input type="radio" id="general-enquiry" />
+              <span class="checkmark"></span>
             </label>
           </div>
           <div class="input__radio">
-            <label for="support-request"
+            <label class="radio" for="support-request"
               >Support Request
               <input type="radio" id="support-request" />
+              <span class="checkmark"></span>
             </label>
           </div>
+          <p class="error hide-error input__query-error">
+            Please select a query type
+          </p>
         </div>
-        <div class="input__message w_100">
+        <div class="input__message">
           <label for="message"
             >Message <span class="importantt"> *</span></label
           >
           <textarea rows="3" id="message"></textarea>
+          <p class="error hide-error">This field is required</p>
         </div>
-        <div class="input__checkbox w_100">
-          <input type="checkbox" id="consent" />
-          <label for="consent"
+        <div class="input__checkbox">
+          <label class="check-container" for="consent"
             >I consent to being contacted by them
+            <input type="checkbox" id="consent" />
+            <span class="check-checkmark"></span>
             <span class="importantt"> *</span></label
           >
+          <p class="error hide-error">
+            To submit this form, please consent to being contacted
+          </p>
         </div>
         <button class="btn" type="submit">Submit</button>
       </form>
