@@ -30,6 +30,8 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Karla", sans-serif;
+
+  position: relative;
 }
 
 .container {
@@ -43,17 +45,64 @@ body {
   box-shadow: 0px 0px 99px -50px rgba(0, 0, 0, 0.4);
 }
 
-.show-error {
-  opacity: 1;
+.success__message {
+  display: none;
+  position: fixed;
+  top: 5rem;
+  min-width: 30rem;
+  background-color: var(--color-grey-900-darker);
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  color: var(--color-white);
+  margin: 0 2rem;
+  z-index: 999;
 }
 
-.hide-error {
+.show-alert {
+  display: block;
+  animation: showAlert 0.5s 1 ease;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.success__message p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.title h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.title svg {
+  fill: var(--color-white);
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-right: 0.7rem;
+  stroke: var(--color-white);
+  stroke-width: 1rem;
+}
+
+.container p {
   opacity: 0;
+  font-size: 1.6rem;
 }
 
-.error {
+.error > p {
+  opacity: 1;
   font-size: 1.6rem;
   color: var(--color-red);
+}
+
+.error > input,
+.error > textarea {
+  border: 1px solid var(--color-red) !important;
 }
 
 .heading-1 {
@@ -130,6 +179,16 @@ label {
   width: 100%;
 }
 
+.input__radio:hover,
+.radio__checked {
+  border: 1px solid var(--color-grey-900-darker);
+  background-color: var(--color-green-200-lighter);
+}
+
+.input__radio:hover .radio .checkmark {
+  border: 2px solid var(--color-green-600-medium);
+}
+
 .input__radio > label {
   flex: 1;
 }
@@ -144,7 +203,7 @@ label {
 }
 
 .input__message {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .input__message > textarea {
@@ -156,7 +215,7 @@ label {
 }
 
 .input__checkbox {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .input__checkbox > label {
@@ -258,11 +317,6 @@ textarea:hover,
   display: block;
 }
 
-.radio_checked {
-  border: 1px solid var(--color-grey-900-darker);
-  background-color: var(--color-green-200-lighter);
-}
-
 .radio .checkmark:after {
   top: 50%;
   left: 50%;
@@ -328,10 +382,6 @@ textarea:hover,
   transform: translate(-120%, -25%);
 }
 
-.error-border {
-  border: 1px solid var(--color-red) !important;
-}
-
 @media only screen and (max-width: 42em) {
   .radio {
     padding-left: 4rem;
@@ -377,5 +427,16 @@ textarea:hover,
   input[type="email"],
   textarea {
     padding-left: 1.5rem;
+  }
+}
+
+@keyframes showAlert {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
   }
 }
